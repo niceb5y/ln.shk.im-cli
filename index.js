@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-require('dotenv').config()
-
+const { resolve } = require('path')
 const { argv, exit } = require('process')
 const { spawn } = require('child_process')
 
 const AWS = require('aws-sdk')
 const { blue } = require('chalk')
 const shortid = require('shortid')
+
+require('dotenv').config({ path: resolve(__dirname, '.env') })
 
 const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi
 
